@@ -12,7 +12,7 @@ Don't forget to change the **.env** file
 
 _**Step 3:**_  
 In your project folder, install the composer plugins.  
-`$` `cd kfi_shop`  
+`$` `cd CrudeExam`  
 `$` `composer install`
 
 _**Step 4:**_  
