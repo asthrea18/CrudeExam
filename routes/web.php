@@ -30,6 +30,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/logout', 'LogoutController@perform')->name('logout.perform');
     Route::get('/profile', 'HomeController@viewProfile');
     Route::get('/accounts', 'HomeController@viewAccounts');
+    Route::get('/fetchdata','HomeController@fetchdata');
  });
 
 

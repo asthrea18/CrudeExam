@@ -92,5 +92,36 @@
     <script src="{{asset('asset/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
     <!-- AdminLTE App -->
     <script src="{{asset('asset/dist/js/adminlte.min.js')}}"></script>
+
+    <script>
+        $(document).ready(function(){
+            fetchdata();
+            function fetchdata(){
+                $.ajax({
+                    type:'GET',
+                    url:'fetchdata',
+                    dataType:"json",
+                    success: function(response){
+                        //console.log(response.userData);
+                        $('.AccountTable').html("");
+                        $.each(response.userData, function (key,item){
+                            if($.trim(item.remarks) == null ){
+
+                            }
+                            $('.AccountTable').append('<tr>\
+                                <td>'+item.name+'</td>\
+                                <td>'+item.username+'</td>\
+                                <td>'+item.email+'</td>\
+                                <td>'+(item.created_at || '')+'</td>\
+                                <td>'+(item.updated_at || '')+'</td>\
+                            </tr>');
+                        })
+
+                    }
+                });
+            }
+        });
+
+    </script>
 </body>
 </html>

@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use DB;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
+use Session;
 class HomeController extends Controller
 {
     /**
@@ -33,4 +36,16 @@ class HomeController extends Controller
     {
         return view('admin.accounts');
     }
+    public function fetchdata(){
+
+        $fetchdata =   DB::table('users')
+        ->whereDay('created_at', now()->day)
+        ->get();
+
+
+
+       return response()->json([
+           'userData'=>$fetchdata,
+       ]);
+   }
 }

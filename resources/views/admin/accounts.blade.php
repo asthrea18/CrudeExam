@@ -10,7 +10,7 @@
                 <ul class="nav nav-tabs" id="custom-tabs-two-tab" role="tablist">
                     <li class="pt-2 px-3"><h3 class="card-title">Users</h3></li>
                     <li class="nav-item">
-                    <a class="nav-link active" id="custom-tabs-two-home-tab" data-toggle="pill" href="#custom-tabs-two-home" role="tab" aria-controls="custom-tabs-two-home" aria-selected="true">Sumnmary</a>
+                    <a class="nav-link active" id="custom-tabs-two-home-tab" data-toggle="pill" href="#custom-tabs-two-home" role="tab" aria-controls="custom-tabs-two-home" aria-selected="true">Summary</a>
                     </li>
                     <li class="nav-item">
                     <a class="nav-link" id="custom-tabs-two-profile-tab" data-toggle="pill" href="#custom-tabs-two-profile" role="tab" aria-controls="custom-tabs-two-profile" aria-selected="false">Profile</a>
@@ -26,7 +26,26 @@
                 <div class="card-body">
                 <div class="tab-content" id="custom-tabs-two-tabContent">
                     <div class="tab-pane fade show active" id="custom-tabs-two-home" role="tabpanel" aria-labelledby="custom-tabs-two-home-tab">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin malesuada lacus ullamcorper dui molestie, sit amet congue quam finibus. Etiam ultricies nunc non magna feugiat commodo. Etiam odio magna, mollis auctor felis vitae, ullamcorper ornare ligula. Proin pellentesque tincidunt nisi, vitae ullamcorper felis aliquam id. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin id orci eu lectus blandit suscipit. Phasellus porta, ante et varius ornare, sem enim sollicitudin eros, at commodo leo est vitae lacus. Etiam ut porta sem. Proin porttitor porta nisl, id tempor risus rhoncus quis. In in quam a nibh cursus pulvinar non consequat neque. Mauris lacus elit, condimentum ac condimentum at, semper vitae lectus. Cras lacinia erat eget sapien porta consectetur.
+                        <table id="example2" class="table table-bordered table-hover">
+                            <thead>
+                            <tr>
+                              <th>Name</th>
+                              <th>Username</th>
+                              <th>Email</th>
+                              <th>Date Created</th>
+                              <th>Last update</th>
+                            </tr>
+                            </thead>
+                            <tbody class="AccountTable">
+
+
+                            </tfoot>
+                        </table>
+
+
+
+
+
                     </div>
 
                     <div class="tab-pane fade" id="custom-tabs-two-profile" role="tabpanel" aria-labelledby="custom-tabs-two-profile-tab">
