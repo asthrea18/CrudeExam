@@ -120,6 +120,30 @@
                     }
                 });
             }
+
+            $(document).on('click','.addAccount',function(e){
+                e.preventDefault();
+
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+                $.ajax({
+                    type:"POST",
+                    url:"/NewAccount",
+                    data:{
+                        _token: '{{csrf_token()}}'
+                    },
+                    dataType:"json",
+                    success: function(response) {
+                        fetchdata();
+
+                        },
+
+                });
+
+            });
         });
 
     </script>
