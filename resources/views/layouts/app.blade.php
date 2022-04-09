@@ -86,6 +86,7 @@
             @yield('content')
         </main>
     </div>
+    @include('admin.modals');
     <!-- jQuery -->
     <script src="{{asset('asset/plugins/jquery/jquery.min.js')}}"></script>
     <!-- Bootstrap 4 -->
@@ -114,34 +115,74 @@
                                 <td>'+item.email+'</td>\
                                 <td>'+(item.created_at || '')+'</td>\
                                 <td>'+(item.updated_at || '')+'</td>\
+                                <td>\
+                                    <button type="button" id="'+item.name+'" value="'+item.name+'" class="btn btn-sm btn-info bg-gradient-warning editmodal">Edit</button>\
+                                    <button type="button" id="'+item.id+'" value="'+item.id+'" class="btn btn-sm btn-info bg-gradient-danger removemodal">Remove</button>\
+                                </td>\
                             </tr>');
                         })
 
                     }
                 });
             }
+            $(document).on('click','.removemodal',function(e){
+                e.preventDefault();
+                var id = $(this).val();
+                $('#modal-remove').modal('show');
+                $("#id_remove").val(id);
+                // alert(id);
+            });
 
             $(document).on('click','.addAccount',function(e){
                 e.preventDefault();
 
-                $.ajaxSetup({
-                    headers: {
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    }
-                });
-                $.ajax({
-                    type:"POST",
-                    url:"/NewAccount",
-                    data:{
-                        _token: '{{csrf_token()}}'
-                    },
-                    dataType:"json",
-                    success: function(response) {
-                        fetchdata();
+                var data = {
+                    'name':$('#name').val(),
+                    'email':$('#email').val(),
+                    'username':$('#username').val(),
+                    'password':$('#password').val(),
+                }
 
-                        },
+               if($('#password').val()!=$('#conpassword').val()){
+                    alert("error");
 
-                });
+               }else{
+                    $.ajaxSetup({
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        }
+                    });
+
+                    $.ajax({
+                        type: "POST",
+                        url: "/newAccount",
+                        data: data,
+                        dataType: "json",
+                        success: function (response) {
+                            // console.log(response);
+                            if (response.status == 400) {
+
+                                alert(response.errors);
+
+                            }else if(response.status == 404){
+                                alert(response.errors);
+                            }else if(response.status == 500){
+                                alert(response.errors);
+                            }
+                            else {
+
+                                alert(response.message);
+
+                                fetchdata();
+                                $('#name').val('');
+                                $('#email').val('');
+                                $('#username').val('');
+                                $('#password').val('');
+                                $('#conpassword').val('');
+                            }
+                        }
+                    });
+               }
 
             });
         });

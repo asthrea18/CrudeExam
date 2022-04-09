@@ -31,6 +31,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/profile', 'HomeController@viewProfile');
     Route::get('/accounts', 'HomeController@viewAccounts');
     Route::get('/fetchdata','HomeController@fetchdata');
+    Route::post('/newAccount','AccountController@AddNewAccount');
  });
 
 

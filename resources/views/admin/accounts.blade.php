@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-10">
 
             <div class="card card-primary card-tabs">
                 <div class="card-header p-0 pt-1">
@@ -34,6 +34,7 @@
                               <th>Email</th>
                               <th>Date Created</th>
                               <th>Last update</th>
+                              <th>Action</th>
                             </tr>
                             </thead>
                             <tbody class="AccountTable">
@@ -51,20 +52,24 @@
                     <div class="tab-pane fade" id="custom-tabs-two-profile" role="tabpanel" aria-labelledby="custom-tabs-two-profile-tab">
                             <div class="form-group">
                               <label for="exampleInputname">Enter Name</label>
-                              <input type="text" class="form-control" name="name" id="exampleInputname" placeholder="Enter Name">
+                              <input type="text" class="form-control" id="name" name="name" id="exampleInputname" placeholder="Enter Name">
                             </div>
                             <div class="form-group">
                               <label for="exampleInputEmail1">Email address</label>
-                              <input type="email" class="form-control" name="email" id="exampleInputEmail1" placeholder="Enter email">
+                              <input type="email" class="form-control" id="email" name="email" id="exampleInputEmail1" placeholder="Enter email">
                             </div>
                             <div class="form-group">
                               <label for="exampleInputUsername">Enter Username</label>
-                              <input type="text" class="form-control" name="username" id="exampleInputUsername" placeholder="Enter username">
+                              <input type="text" class="form-control" id="username" name="username" id="exampleInputUsername" placeholder="Enter username">
                             </div>
                             <div class="form-group">
                               <label for="exampleInputPassword1">Password</label>
-                              <input type="password" class="form-control" name="password" id="exampleInputPassword1" placeholder="Password">
+                              <input type="password" class="form-control" id="password" name="password" id="exampleInputPassword1" placeholder="Password">
                             </div>
+                            <div class="form-group">
+                                <label for="exampleInputConPassword1">Confirm Password</label>
+                                <input type="password" class="form-control" id="conpassword" name="conpassword" id="exampleInputConPassword1" placeholder="Confirm  Password">
+                              </div>
                             <div class="form-check">
                               <button type="submit" class="btn btn-primary float-right addAccount">Submit</button>
                             </div>
